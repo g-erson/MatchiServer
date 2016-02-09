@@ -42,4 +42,13 @@ class UserController extends Controller
             return response("Unauthorised. ", 401);
     }
 
+    public function deleteUser(Request $request, $userid)
+    {
+        if(Gate::allows('deleteUser',$userid)){
+            User::destroy($userid);
+            return response(200);
+        }
+        else
+            return response("Unauthorised.", 401);
+    }
 }

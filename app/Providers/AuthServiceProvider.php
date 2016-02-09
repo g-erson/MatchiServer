@@ -40,6 +40,12 @@ class AuthServiceProvider extends ServiceProvider
         // Authorises the current user for particular requests
         
         Gate::define('getUser',function($user,$userid) {
+            // TODO allow user to get users matched with them
+            return $user->id == $userid;
+        });
+
+        Gate::define('deleteUser',function($user,$userid) {
+            // TODO allow user to get users matched with them
             return $user->id == $userid;
         });
     }
