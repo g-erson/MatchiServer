@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Laravel\Lumen\Routing\Controller as Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+
+use App\User;
 
 class UserController extends Controller
 {
@@ -18,8 +21,25 @@ class UserController extends Controller
 
     public function createUser(Request $request)
     {
-       $name = $request->json('username');
-       $pass = $request->json('password');
-       return $name . " " . $pass;
+        $user = new User;
+        $user->firstname = $request->json('firstname');
+        $user->lastname = $request->json('lastname');         
+        $user->email = $request->json('email');
+        $api_token = md5(random_bytes(16));
+        $user->api_token = $api_token;
+        if( $user->firstname === null || $user->lastname === null)
+            return "<strong>Error, no firstname or lastname supplied</strong>";
+        $user->save();
+
+        return $api_token; 
     }
+
+    public function getUser(Request $request, $userid)
+    {
+        if(Gate::allows('getUser',$userid))
+            return User::find($userid);
+        else
+            return response("Unauthorised. ", 401);
+    }
+
 }

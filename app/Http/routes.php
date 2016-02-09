@@ -17,10 +17,16 @@ $app->get('/', function () use ($app)
     return "Matchi <3";
 });
 
-$app->group(['prefix' => '/api', 'namespace' => 'App\Http\Controllers'],function($app) 
-{
-    $app->post('/users','UserController@createUser');
+$app->get('/api/test','UserController@testfunc');
 
+$app->post('/api/users', 'UserController@createUser');
+
+
+$app->group(['prefix'     => '/api',
+             'namespace'  => 'App\Http\Controllers',
+             'middleware' => 'auth'],
+             function($app)
+{
     $app->put('/users/{userid}/location','MatchController@updateLocation');
 
     $app->get('/users/{userid}/matches','MatchController@getMatches');
@@ -28,8 +34,6 @@ $app->group(['prefix' => '/api', 'namespace' => 'App\Http\Controllers'],function
     $app->put('/users/{userid}/description','UserController@updateDescription');
 
     $app->put('/users/{userid}/picture','UserController@updatePicture');
-
-    $app->get('/users/{userid}/apitoken','UserController@getToken');
 
     $app->get('/users/{userid}','UserController@getUser');
 
