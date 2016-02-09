@@ -33,7 +33,7 @@ class UserController extends Controller
             return "<strong>Error, no firstname or lastname supplied</strong>";
         $user->save();
 
-        return json_encode(["userid: "=> $user->id,"AuthToken: " => $api_token]); 
+        return json_encode(["userid" => $user->id,"AuthToken" => $api_token]); 
     }
 
     public function getUser(Request $request, $userid)
