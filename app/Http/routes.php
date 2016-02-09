@@ -17,8 +17,6 @@ $app->get('/', function () use ($app)
     return "Matchi <3";
 });
 
-$app->get('/api/test','UserController@testfunc');
-
 $app->post('/api/users', 'UserController@createUser');
 
 

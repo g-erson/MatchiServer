@@ -26,6 +26,8 @@ class UserController extends Controller
         $user->lastname = $request->json('lastname');         
         $user->email = $request->json('email');
         $api_token = md5(random_bytes(16));
+        for($i = 0;$i < 7;$i++)
+            $api_token .= md5(random_bytes(16));
         $user->api_token = $api_token;
         if( $user->firstname === null || $user->lastname === null)
             return "<strong>Error, no firstname or lastname supplied</strong>";
