@@ -32,5 +32,33 @@ class User extends Model implements
      */
     protected $hidden = [
         'api_token',
+        'facebookid'
     ];
+
+    /*
+     * one to one relationship between user and token key
+     */
+
+    public function token()
+    {
+        return $this->hasOne('App\Token','userid','tokenid');
+    }
+
+    /*
+     * one to many relationship between user and matched_users
+     */
+
+    public function matched_users()
+    {
+        return $this->hasMany('App\Matched_user','userid','matched_userid');
+    }
+
+    /*
+     * one to many relationship between user and matched_users
+     */
+
+    public function user_locations()
+    {
+        return $this->hasMany('App\User_location','userid','locationid');
+    }
 }

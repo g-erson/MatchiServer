@@ -1,3 +1,36 @@
+# Matchi Web Server
+
+This is the web server for the Matchi app. Below is a description of the use cases required for testing.
+
+## Use Case Tests
+
+ServerIP: http://52.16.78.184/
+
+This is a RESTful api. Requests are made with standard HTTP request methods GET, POST, and DELETE. 
+Requests will eventually use the PUT method, but these have not been implemented yet.
+
+You may find it helpful to use resty to make HTTP requests - this can be found at https://github.com/micha/resty 
+
+If not, curl (https://curl.haxx.se/) may be helpful.
+
+USE CASE ID: 1
+TITLE: CREATE USER
+DESCRIPTION: HTTP POST request to the resource /api/users containing json content body with the keys
+             'firstname', 'lastname' and optionally 'email'. The server shall return json with the 
+             keys 'userid' and 'AuthToken'.
+
+USE CASE ID: 2
+TITLE: GET USER
+DESCRIPTION: HTTP GET request to the resource /api/users/{userid} with the custom header 'AuthToken' the
+             'AuthToken' being the same as is returned when creating a user, as seen above. Without the 'AuthToken'
+             header, the server should return 'Unauthorised'.
+
+USE CASE ID: 3
+TITLE: DELETE USER
+DESCRIPTION: HTTP DELETE request to the resource /api/users/{userid} with the custom header 'AuthToken' the
+             'AuthToken' the same as is returned when creating a user. Without the 'AuthToken' header, the server
+             should return 'Unauthorised'. Subsequest get requests for this user should fail with 'Unauthorised'.
+
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
@@ -19,3 +52,4 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+

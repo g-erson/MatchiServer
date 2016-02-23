@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Log;
 use App\User;
+use App\Token;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
@@ -34,7 +35,10 @@ class AuthServiceProvider extends ServiceProvider
         $user = null;
         $this->app['auth']->viaRequest('api', function ($request) {
             if($request->header("AuthToken"))
-                return User::where('api_token',$request->header("AuthToken"))->first();
+            {
+                $tk = Token::where('api_token',$request->header("AuthToken"))->first();
+                return User::where('tokenid',$tk->id)->first();
+            }
         });
 
         // Authorises the current user for particular requests

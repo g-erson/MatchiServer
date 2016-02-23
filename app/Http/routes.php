@@ -19,6 +19,9 @@ $app->get('/', function () use ($app)
 
 $app->post('/api/users', 'UserController@createUser');
 
+// TODO need to query facebook api for verification, shouldn't be too hard
+$app->get('/users/{userid}/token/{userToken}/{appToken}','UserController@getToken');
+
 
 $app->group(['prefix'     => '/api',
              'namespace'  => 'App\Http\Controllers',
@@ -35,15 +38,11 @@ $app->group(['prefix'     => '/api',
 
     $app->get('/users/{userid}','UserController@getUser');
 
-    $app->get('/users/{userid}/description','UserController@getDescription');
-    
-    $app->get('/users/{userid}/picture','UserController@getPicture');
-    
     $app->delete('/users/{userid}','UserController@deleteUser');
 });
 
 
 /* 
- * Look up authentication with social media, OAuth
+ * Look up authentication with social media.
  */
 
