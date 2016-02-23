@@ -14,19 +14,19 @@ You may find it helpful to use resty to make HTTP requests - this can be found a
 If not, curl (https://curl.haxx.se/) may be helpful.
 
 ### Create user
-DESCRIPTION: HTTP POST request to the resource /api/users containing json content body with the keys
-             'firstname', 'lastname' and optionally 'email'. The server shall return json with the 
-             keys 'userid' and 'AuthToken'.
+HTTP POST request to the resource /api/users containing json content body with the keys
+'firstname', 'lastname' and optionally 'email'. The server shall return json with the 
+keys 'userid' and 'AuthToken'.
 
 ### Get user
-DESCRIPTION: HTTP GET request to the resource /api/users/{userid} with the custom header 'AuthToken' the
-             'AuthToken' being the same as is returned when creating a user, as seen above. Without the 'AuthToken'
-             header, the server should return 'Unauthorised'.
+HTTP GET request to the resource /api/users/{userid} with the custom header 'AuthToken' the
+'AuthToken' being the same as is returned when creating a user, as seen above. Without the 'AuthToken'
+header, the server should return 'Unauthorised'.
 
 ### Delete user
-DESCRIPTION: HTTP DELETE request to the resource /api/users/{userid} with the custom header 'AuthToken' the
-             'AuthToken' the same as is returned when creating a user. Without the 'AuthToken' header, the server
-             should return 'Unauthorised'. Subsequest get requests for this user should fail with 'Unauthorised'.
+HTTP DELETE request to the resource /api/users/{userid} with the custom header 'AuthToken' the
+'AuthToken' the same as is returned when creating a user. Without the 'AuthToken' header, the server
+should return 'Unauthorised'. Subsequest get requests for this user should fail with 'Unauthorised'.
 
 # Lumen PHP Framework
 
