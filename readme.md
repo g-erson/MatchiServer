@@ -26,7 +26,7 @@ header, the server should return 'Unauthorised'.
 ### Delete user
 HTTP DELETE request to the resource /api/users/{userid} with the custom header 'AuthToken' the
 'AuthToken' the same as is returned when creating a user. Without the 'AuthToken' header, the server
-should return 'Unauthorised'. Subsequest get requests for this user should fail with 'Unauthorised'.
+should return 'Unauthorised'. Subsequent get requests for this user should fail with 'Unauthorised'.
 
 ## Built on the Lumen PHP Framework
 
