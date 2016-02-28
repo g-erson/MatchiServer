@@ -34,8 +34,6 @@ $app->group(['prefix'     => '/api',
 
     $app->put('/users/{userid}/description','UserController@updateDescription');
 
-    $app->put('/users/{userid}/picture','UserController@updatePicture');
-
     $app->get('/users/{userid}','UserController@getUser');
 
     $app->delete('/users/{userid}','UserController@deleteUser');
