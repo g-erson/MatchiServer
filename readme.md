@@ -16,17 +16,32 @@ If not, curl (https://curl.haxx.se/) may be helpful.
 ### Create user
 HTTP POST request to the resource /api/users containing json content body with the keys
 'firstname', 'lastname' and optionally 'email'. The server shall return json with the 
-keys 'userid' and 'AuthToken'.
+keys 'user_id' and 'AuthToken'.
 
 ### Get user
 HTTP GET request to the resource /api/users/{userid} with the custom header 'AuthToken' the
 'AuthToken' being the same as is returned when creating a user, as seen above. Without the 'AuthToken'
-header, the server should return 'Unauthorised'.
+header, the server shall return 'Unauthorised'.
+The server shall return a JSON object on success, or user not found.
 
 ### Delete user
 HTTP DELETE request to the resource /api/users/{userid} with the custom header 'AuthToken' the
 'AuthToken' the same as is returned when creating a user. Without the 'AuthToken' header, the server
-should return 'Unauthorised'. Subsequent get requests for this user should fail with 'Unauthorised'.
+shall return 'Unauthorised'. Subsequent get requests for this user shall fail with 'Unauthorised'.
+
+### Update user location
+HTTP PUT request to the resource /api/users/{userid}/location with the custom header 'AuthToken' the 
+'AuthToken' the same as is returned when creating a user. Without the 'AuthToken' header, the server
+shall return 'Unauthorised'. Subsequent get requests for this user shall fail with 'Unauthorised'.
+The server shall return 'Location saved' on success.
+
+### Get user matches
+HTTP GET request to the resource /api/users/{userid}/matches with the custom header 'AuthToken' the 
+'AuthToken' the same as is returned when creating a user. Without the 'AuthToken' header, the server
+shall return 'Unauthorised'. Subsequent get requests for this user shall fail with 'Unauthorised'.
+The server shall return a list of matches on success.
+
+
 
 ## Built on the Lumen PHP Framework
 
