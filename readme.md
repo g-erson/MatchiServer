@@ -31,14 +31,29 @@ shall return 'Unauthorised'. Subsequent get requests for this user shall fail wi
 ### Update user location
 HTTP PUT request to the resource /api/users/{userid}/location with the custom header 'AuthToken' the 
 'AuthToken' the same as is returned when creating a user. Without the 'AuthToken' header, the server
-shall return 'Unauthorised'. Subsequent get requests for this user shall fail with 'Unauthorised'.
-The server shall return 'Location saved' on success.
+shall return 'Unauthorised'. The server shall return 'Location saved' on success.
 
 ### Get user matches
 HTTP GET request to the resource /api/users/{userid}/matches with the custom header 'AuthToken' the 
 'AuthToken' the same as is returned when creating a user. Without the 'AuthToken' header, the server
-shall return 'Unauthorised'. Subsequent get requests for this user shall fail with 'Unauthorised'.
-The server shall return a list of matches on success.
+shall return 'Unauthorised'. The server shall return a JSON object on success, or empty array if no
+matches exist.
+
+### Block user
+HTTP POST request to the resource /api/users/{userid}/block/{blockuserid} with the custom header 'AuthToken' the 
+'AuthToken' the same as is returned when creating a user. Without the 'AuthToken' header, the server
+shall return 'Unauthorised'. The server shall return 'Blocked succesfully' on success.
+
+### Unblock user
+HTTP DELETE request to the resource /api/users/{userid}/block/{unblockuserid} with the custom header 'AuthToken' the 
+'AuthToken' the same as is returned when creating a user. Without the 'AuthToken' header, the server
+shall return 'Unauthorised'. The server shall return 'Unblocked succesfully' on success.
+
+### Get blocked users
+HTTP GET request to the resource /api/users/{userid}/blocked with the custom header 'AuthToken' the 
+'AuthToken' the same as is returned when creating a user. Without the 'AuthToken' header, the server
+shall return 'Unauthorised'. The server shall return a JSON object on success, or empty array if no
+matches exist.
 
 
 
