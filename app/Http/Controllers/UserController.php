@@ -52,7 +52,7 @@ class UserController extends Controller
         $token->api_token = $api_token;
         $user->token()->save($token);
 
-        return json_encode(["userid" => $user->id,"AuthToken" => $api_token]); 
+        return json_encode(["userid" => $user->id,"AuthToken" => $user->token->api_token]); 
     }
 
     public function getToken(Request $request, $userid, $userToken, $appToken)

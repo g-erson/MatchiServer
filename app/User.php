@@ -41,7 +41,7 @@ class User extends Model implements
 
     public function token()
     {
-        return $this->hasOne('App\Token','userid','tokenid');
+        return $this->hasOne('App\Token');
     }
 
     /*
@@ -50,15 +50,24 @@ class User extends Model implements
 
     public function matched_users()
     {
-        return $this->hasMany('App\Matched_user','userid','matched_userid');
+        return $this->hasMany('App\Matched_user');
     }
 
     /*
-     * one to many relationship between user and matched_users
+     * one to many relationship between user and blocked_users
+     */
+
+    public function blocked_users()
+    {
+        return $this->hasMany('App\Blocked_user');
+    }
+
+    /*
+     * one to many relationship between user and user_locations
      */
 
     public function user_locations()
     {
-        return $this->hasMany('App\User_location','userid','locationid');
+        return $this->hasMany('App\User_location');
     }
 }

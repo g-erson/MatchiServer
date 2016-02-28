@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
-use Laravel\Lumen\Http\Request;
+use Illuminate\Http\Request;
 
 use App\User_location;
 use App\User;
@@ -14,11 +14,10 @@ class MatchController extends BaseController
     {
     }
 
-    public function updateLocation(Request $request)
+    public function updateLocation(Request $request, $userid)
     {
         $location = new User_location();
         $location->location = $request->json('location');
-        $userid = $request->json('userid');
         if($userid === null)
             return " Error, no user ID supplied";
         $user = User::find($userid);

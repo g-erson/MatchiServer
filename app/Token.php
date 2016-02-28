@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Token extends Model
 {
-    protected $primaryKey = 'userid';
+//    protected $primaryKey = 'userid';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
-     */
+     *
     protected $fillable = [
         'userid'
     ];
@@ -30,6 +30,6 @@ class Token extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User','userid','tokenid');
+        return $this->belongsTo('App\User');
     }
 }
