@@ -6,8 +6,7 @@ This is the web server for the Matchi app. Below is a description of the use cas
 
 ServerIP: http://52.16.78.184/
 
-This is a RESTful api. Requests are made with standard HTTP request methods GET, POST, and DELETE. 
-Requests will eventually use the PUT method, but these have not been implemented yet.
+This is a RESTful api. Requests are made with standard HTTP request methods GET, POST, PUT and DELETE. 
 
 You may find it helpful to use resty to make HTTP requests - this can be found at https://github.com/micha/resty 
 
