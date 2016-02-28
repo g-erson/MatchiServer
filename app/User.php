@@ -32,7 +32,10 @@ class User extends Model implements
      */
     protected $hidden = [
         'api_token',
-        'facebookid'
+        'facebookid',
+        'email',
+        'updated_at',
+        'created_at'
     ];
 
     /*

@@ -20,6 +20,7 @@ $app->get('/', function () use ($app)
 $app->post('/api/users', 'UserController@createUser');
 
 // TODO need to query facebook api for verification, shouldn't be too hard
+// !!IMPORTANT!!
 $app->get('/users/{userid}/token/{userToken}/{appToken}','UserController@getToken');
 
 
@@ -32,7 +33,15 @@ $app->group(['prefix'     => '/api',
 
     $app->get('/users/{userid}/matches','MatchController@getMatches');
 
-    $app->put('/users/{userid}/description','UserController@updateDescription');
+    $app->get('/users/{userid}/blocked','MatchController@getBlockedUsers');
+
+    $app->post('/users/{userid}/block/{blockuserid}','MatchController@blockUser');
+
+    $app->delete('/users/{userid}/block/{unblockuserid}','MatchController@unblockUser');
+
+//    $app->put('/users/{userid}/picture','UserController@updatePicture');
+
+ //   $app->put('/users/{userid}/description','UserController@updateDescription');
 
     $app->get('/users/{userid}','UserController@getUser');
 

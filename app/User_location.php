@@ -13,6 +13,7 @@ class User_location extends Model
      * @var array
      */
     protected $hidden = [
+        'id',
         'location'
     ];
 
