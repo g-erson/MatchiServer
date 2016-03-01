@@ -34,7 +34,6 @@ class UserController extends Controller
         if($request->isMethod('post'))
         {
             $user = new User;
-            $token = new Token;
             $errors = null;
             $user->firstname = $request->json('firstname');
             $user->lastname = $request->json('lastname');         
@@ -63,9 +62,8 @@ class UserController extends Controller
             return response('Invalid request',405)->header('Allow','POST');
     }
 
-    //TODO !!IMPORTANT!!
     /* 
-     * FUNCTION getToken
+     * FUNCTION renewToken
      * METHOD GET
      *
      * gets a new token, verifies user with facebooks graph api
@@ -75,9 +73,9 @@ class UserController extends Controller
      * @param appToken (facebook app token)
      * @return token
      */
-    public function getToken(Request $request, $userid, $userToken, $appToken)
+    public function renewToken(Request $request, $userid, $userToken, $appToken)
     {
-       //query facebook api 
+        //TODO
     }
 
     /*
@@ -143,9 +141,11 @@ class UserController extends Controller
      */
     private function newToken()
     {
+        $token = new Token;
         $api_token = md5(random_bytes(16));
         for($i = 0;$i < 7;$i++)
             $api_token .= md5(random_bytes(16));
-        return $token->api_token = $api_token;
+        $token->api_token = $api_token;
+        return $token;
     }
 }

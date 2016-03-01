@@ -19,9 +19,8 @@ $app->get('/', function () use ($app)
 
 $app->post('/api/users', 'UserController@createUser');
 
-// TODO need to query facebook api for verification, shouldn't be too hard
-// !!IMPORTANT!!
-$app->get('/users/{userid}/token/{userToken}/{appToken}','UserController@getToken');
+// TODO need to query facebook api for verification
+$app->get('/users/{userid}/token/{userToken}/{appToken}','UserController@renewToken');
 
 
 $app->group(['prefix'     => '/api',
