@@ -14,7 +14,7 @@
 
 $app->get('/', function () use ($app) 
 {
-    return "Matchi <3";
+    return '<style> body { margin: auto;padding: 10px;width: 30%; font-family: arial;font-size:93px;}</style> <body>Matchi <3<br><img src="http://i.imgur.com/oHPibND.jpg" alt="andreas"> </body>';
 });
 
 $app->post('/api/users', 'UserController@createUser');
