@@ -40,12 +40,12 @@ shall return 'Unauthorised'. The server shall return a JSON object on success, o
 matches exist.
 
 ### Block user
-HTTP POST request to the resource /api/users/{userid}/block/{blockuserid} with the custom header 'AuthToken' the 
+HTTP POST request to the resource /api/users/{userid}/blocked/{blockuserid} with the custom header 'AuthToken' the 
 'AuthToken' the same as is returned when creating a user. Without the 'AuthToken' header, the server
 shall return 'Unauthorised'. The server shall return 'Blocked succesfully' on success.
 
 ### Unblock user
-HTTP DELETE request to the resource /api/users/{userid}/block/{unblockuserid} with the custom header 'AuthToken' the 
+HTTP DELETE request to the resource /api/users/{userid}/blocked/{unblockuserid} with the custom header 'AuthToken' the 
 'AuthToken' the same as is returned when creating a user. Without the 'AuthToken' header, the server
 shall return 'Unauthorised'. The server shall return 'Unblocked succesfully' on success.
 

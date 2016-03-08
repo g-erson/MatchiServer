@@ -34,9 +34,9 @@ $app->group(['prefix'     => '/api',
 
     $app->get('/users/{userid}/blocked','MatchController@getBlockedUsers');
 
-    $app->post('/users/{userid}/block/{blockuserid}','MatchController@blockUser');
+    $app->post('/users/{userid}/blocked/{blockuserid}','MatchController@blockUser');
 
-    $app->delete('/users/{userid}/block/{unblockuserid}','MatchController@unblockUser');
+    $app->delete('/users/{userid}/blocked/{unblockuserid}','MatchController@unblockUser');
 
 //    $app->put('/users/{userid}/picture','UserController@updatePicture');
 
