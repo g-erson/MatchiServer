@@ -14,7 +14,7 @@ If not, curl (https://curl.haxx.se/) may be helpful.
 
 ### Create user
 HTTP POST request to the resource /api/users containing json content body with the keys
-'firstname', 'lastname' and optionally 'email'. The server shall return json with the 
+'firstname', 'lastname', 'facebookid', and optionally 'email'. The server shall return json with the 
 keys 'user_id' and 'AuthToken'.
 
 ### Get user
