@@ -10,11 +10,16 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
+$app->get('/205-submission',function () use ($app)
+{
+    return view('205-submission',[]);
+});
 
 
 $app->get('/', function () use ($app) 
 {
-    return '<style> body { margin: auto;padding: 10px;width: 30%; font-family: arial;font-size:93px;font-color:#29293d;}</style> <body>Matchi <3<br><img src="http://i.imgur.com/oHPibND.jpg" alt="andreas"> </body>';
+    return 'hi';
+//    return '<style> body { margin: auto;padding: 10px;width: 30%; font-family: arial;font-size:93px;font-color:#29293d;}</style> <body>Matchi <3<br><img src="http://i.imgur.com/oHPibND.jpg" alt="andreas"> </body>';
 });
 
 $app->post('/api/users', 'UserController@createUser');
