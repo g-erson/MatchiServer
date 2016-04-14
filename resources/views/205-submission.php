@@ -166,10 +166,7 @@
                     <br>
                     <br>
 
-                    A discussion whether research papers should be free - '“Realistically only scientists at really big, well-funded universities
-                    in the developed world have full access to published research,” said Michael Eisen, a professor of genetics, genomics and 
-                    development at the University of California, Berkeley'. 
-                    It discusses the case of Aaron Swartz, who was charged with wire fraud and various other things under the Computer Misuse act
+                    This discusses the case of Aaron Swartz, who was charged with wire fraud and various other things under the Computer Misuse act
                     after he tried to download articles from JSTOR, at MIT. He eventually hanged himself as a result of the pressure the government
                     placed on him.
                     Freedom of information is incredibly important in this modern age, and large coorporations who create a culture of prestige, whereby
@@ -236,9 +233,6 @@
                     method is devised of attempting to mitigate leaks like this. Some companies do disallow certains types of email attachments,
                     and implement systems that check the type of file ( for example banning the sending of zip files) but these types of systems
                     are often circumnavigated by simply adding a different file extension to the end ( file1.zip.docx for example).
-                    Attempting to train staff about what may constitute certain types of social engineering attacks is another way to try to 
-                    mitigate the problem - but even then, it only takes 1 email to the wrong person to send out sensitive information.
-                    Information security still has a long way to go, and this is a big obstacle that may take a very long time to overcome.
 
                 </div>
                 <div class="item">
