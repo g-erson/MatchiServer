@@ -10,7 +10,7 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-$app->get('/205-submission',function () use ($app)
+$app->get('/tech_good_and_bad',function () use ($app)
 {
     return view('205-submission',[]);
 });
