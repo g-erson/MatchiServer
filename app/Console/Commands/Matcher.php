@@ -67,6 +67,6 @@ class Matcher extends Command
         $userToId   = $this->argument('user_to_id');
         $userFrom   = User::find($userFromId);  // database retrieval 
         $userTo     = User::find($userToId);
-        $userFrom->matchWith($userTo, 1);
+        $userFrom->match_with($userTo, 1);
     }
 }
