@@ -49,10 +49,7 @@ class MatchController extends BaseController
     public function getMatches(Request $request, $userid)
     {
         $user = User::find($userid);
-        return $matchedUserIds =  Matched_user::where('user_id',$user->id)
-                                        ->join('users','users.id','=','matched_users.matched_userid')
-                                        ->orderBy('rank','desc')
-                                        ->get();
+        return $user->matches();
     }
 
     /*

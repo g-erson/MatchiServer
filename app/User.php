@@ -71,8 +71,24 @@ class User extends Model implements
         return $this->hasMany('App\User_location');
     }
 
-    public function matchWith($user, $rank)
+    /*
+     * returns matches
+     */
+    public function matches()
     {
+        return Matched_user::where('user_id',$this->id)
+                            ->join('users','users.id','=','matched_users.matched_userid')
+                            ->orderBy('rank','desc')
+                            ->get();
+    }
+
+    /*
+     * matches a user with another user
+     */
+    public function match_with($user, $rank)
+    {
+        if($this->matches()->matched_userid->contains($user->id))
+            return;
         $match = new Matched_user();
         $match->user_id = $this->id;
         $match->matched_userid = $user->id;
