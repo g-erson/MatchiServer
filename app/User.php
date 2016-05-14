@@ -70,17 +70,4 @@ class User extends Model implements
     {
         return $this->hasMany('App\User_location');
     }
-
-    /*
-     * Match user with
-     */
-    public function matchwith($userId, $rank)
-    {
-        $user = User::find($userId);
-        $match = new Matched_user();
-        $match->user_id = $user->id;
-        $match->matched_userid = $userId->id;
-        $match->rank = $rank;
-        $match->save();
-    }
 }
