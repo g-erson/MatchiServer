@@ -66,7 +66,17 @@ class Matcher extends Command
         $userFromId = $this->argument('user_from_id');
         $userToId   = $this->argument('user_to_id');
         $userFrom   = User::find($userFromId);  // database retrieval 
-        $userFrom->matchwith($userToId,2); // 2 is rank, replace with whatever
+        $userTo     = User::find($userToId);
+        $this->matchUser($userFrom, $userTo, 1);
         
+    }
+
+    public function matchUser($userFrom, $userTo, $rank)
+    {
+        $match = new Matched_user();
+        $match->user_id = $userFrom->id;
+        $match->matched_userid = $userTo->id;
+        $match->rank = $rank;
+        $match->save();
     }
 }
