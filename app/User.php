@@ -75,7 +75,7 @@ class User extends Model implements
     {
         $match = new Matched_user();
         $match->user_id = $this->id;
-        $match->matched_userid = $userTo->id;
+        $match->matched_userid = $user->id;
         $match->rank = $rank;
         $match->save();
     }
