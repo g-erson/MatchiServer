@@ -27,7 +27,7 @@ class Matcher extends Command
      *
      * @var string
      */
-    protected $signature = 'matcher:run {user_from_id, user_to_id}';
+    protected $signature = 'matcher:run {user_from_id} {user_to_id}';
 
     /**
      * The console command description.
@@ -67,16 +67,6 @@ class Matcher extends Command
         $userToId   = $this->argument('user_to_id');
         $userFrom   = User::find($userFromId);  // database retrieval 
         $userTo     = User::find($userToId);
-        $this->matchUser($userFrom, $userTo, 1);
-        
-    }
-
-    public function matchUser($userFrom, $userTo, $rank)
-    {
-        $match = new Matched_user();
-        $match->user_id = $userFrom->id;
-        $match->matched_userid = $userTo->id;
-        $match->rank = $rank;
-        $match->save();
+        $userFrom->matchWith($userTo, 1);
     }
 }
