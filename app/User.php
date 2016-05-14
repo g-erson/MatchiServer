@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Matched_user;
 use Illuminate\Auth\Authenticatable;
 use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
@@ -41,7 +42,6 @@ class User extends Model implements
     /*
      * one to one relationship between user and token key
      */
-
     public function token()
     {
         return $this->hasOne('App\Token');
@@ -50,7 +50,6 @@ class User extends Model implements
     /*
      * one to many relationship between user and matched_users
      */
-
     public function matched_users()
     {
         return $this->hasMany('App\Matched_user');
@@ -59,7 +58,6 @@ class User extends Model implements
     /*
      * one to many relationship between user and blocked_users
      */
-
     public function blocked_users()
     {
         return $this->hasMany('App\Blocked_user');
@@ -68,9 +66,21 @@ class User extends Model implements
     /*
      * one to many relationship between user and user_locations
      */
-
     public function user_locations()
     {
         return $this->hasMany('App\User_location');
+    }
+
+    /*
+     * Match user with
+     */
+    public function matchwith($userId, $rank)
+    {
+        $user = User::find($userId);
+        $match = new Matched_user();
+        $match->user_id = $user->id;
+        $match->matched_userid = $userId->id;
+        $match->rank = $rank;
+        $match->save();
     }
 }

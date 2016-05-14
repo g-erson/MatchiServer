@@ -3,7 +3,9 @@
 namespace App\Console\Commands;
 
 use App\User;
-//use App\DripEmailer;
+use App\User_location;
+use App\Matched_user;
+use App\Blocked_user;
 use Illuminate\Console\Command;
 
 /*
@@ -25,7 +27,7 @@ class Matcher extends Command
      *
      * @var string
      */
-    protected $signature = 'matcher:run';
+    protected $signature = 'matcher:run {user_from_id} {user_to_id}';
 
     /**
      * The console command description.
@@ -61,7 +63,10 @@ class Matcher extends Command
      */
     public function handle()
     {
-//        $this->drip->send(User::find($this->argument('user'))); DO WHATEVER 
-       echo("hi \n"); 
+        $userFromId = $this->argument('user_from_id');
+        $userToId   = $this->argument('user_to_id');
+        $userFrom   = User::find($userFromId);  // database retrieval 
+        $userFrom->matchwith($userToId,2); // 2 is rank, replace with whatever
+        
     }
 }

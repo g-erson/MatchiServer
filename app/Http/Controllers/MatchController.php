@@ -51,6 +51,7 @@ class MatchController extends BaseController
         $user = User::find($userid);
         return $matchedUserIds =  Matched_user::where('user_id',$user->id)
                                         ->join('users','users.id','=','matched_users.matched_userid')
+                                        ->orderBy('rank','desc')
                                         ->get();
     }
 
