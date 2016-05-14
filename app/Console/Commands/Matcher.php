@@ -27,7 +27,7 @@ class Matcher extends Command
      *
      * @var string
      */
-    protected $signature = 'matcher:run {user_from_id} {user_to_id}';
+    protected $signature = 'matcher:run {user_from_id, user_to_id}';
 
     /**
      * The console command description.
