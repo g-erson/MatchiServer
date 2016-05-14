@@ -87,8 +87,8 @@ class User extends Model implements
      */
     public function match_with($user, $rank)
     {
-        if($this->matches()->matched_userid->contains($user->id))
-            return;
+        $arr = $this->matches()->toArray();
+        echo($arr);
         $match = new Matched_user();
         $match->user_id = $this->id;
         $match->matched_userid = $user->id;
